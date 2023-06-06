@@ -1,13 +1,30 @@
 
 #include "imu.hpp"
 
+struct IMU imu;
 
 void setup() {
-  // put your setup code here, to run once:
+  
+  Serial.begin(9600);
+
+  init_imu();
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  
+  start_imu();
 
+  get_imu_data();
+
+  Serial.print(imu.accelx / 2048);
+  Serial.print(" ");
+
+  Serial.print(imu.accely / 2048);
+  Serial.print(" ");
+
+  Serial.print(imu.accelz / 2048);
+  Serial.print(" ");
+  
+  Serial.print("\n");
 }

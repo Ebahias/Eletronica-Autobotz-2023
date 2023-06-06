@@ -6,6 +6,7 @@
 // Endereco I2C do sensor MPU-6050
 const int MPU = 0x68;
 
+
 struct IMU{
 
   float accelx;
@@ -14,8 +15,10 @@ struct IMU{
   float gyrx;
   float gyry;
   float gyrz;
-
+  float temp;
 };
+
+extern struct IMU imu;
 
 void init_imu();
 
@@ -23,7 +26,6 @@ void start_imu();
 
 void calibrate_imu();
 
-void get_accel(char axis, struct IMU* imu);
-
+void get_imu_data();
 
 #endif
